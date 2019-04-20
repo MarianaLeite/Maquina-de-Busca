@@ -1,3 +1,19 @@
+/**
+ * @file main.cpp
+ * 
+ * @authors João Victor de Castro Alves (joaovictorcastroa@gmail.com)
+ *          Mariana da Silva Leite (marianaleite785@gmail.com)
+ * 
+ * @brief 
+ * 
+ * @version 0.1
+ * 
+ * @date 2019-04-20
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
+
 #include "../include/leitura.h"
 
 #include <iostream>
@@ -11,6 +27,6 @@ using std::string;
 
 int main (){
     
-    arquivo x ("arquivo_teste.txt");
+    Documento x("arquivo_teste.txt");
 }
 
