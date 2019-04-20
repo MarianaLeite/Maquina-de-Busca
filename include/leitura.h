@@ -47,6 +47,8 @@ class Documento {
         */
        bool pertence(string palavra);
 
+       void Tratar_texto(string n);
+
     private: 
 
         /**
@@ -76,7 +78,7 @@ class Documento {
          * @brief Nome e extensão do documento e.g. "doc.txt"
          * 
          */
-        string documento_;
+        string documento_ , n;
 
         /**
         * @brief Insere a palavra na lista de palavras
