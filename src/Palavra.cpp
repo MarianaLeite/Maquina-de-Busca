@@ -2,6 +2,7 @@
 #include "../include/Documento.h"
 # include <string>
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
 Palavras::Palavras(Documento colecao){
@@ -28,19 +29,18 @@ void Palavras::Insere_palavras(Documento colecao){
 
 }
 void Palavras::Indice_invertido(){ 
-    string arquivos[2];
-    arquivos[0] = "arquivo_teste.txt";
-    arquivos[1] = "teste.txt";
+    string arquivos[3];
+    arquivos[1] = "arquivo_teste.txt";
+    arquivos[2] = "teste.txt";
     if (qnt_palavras_ != 0){
         for (int palavra = 0; palavra < this -> qnt_palavras_ ; palavra++){
-        //cout<<palavras[palavra]<<" ";
-        for (int arquivo = 0; arquivo < 2; arquivo++){   
-            cout<<this -> Ocorrencia(palavras_[palavra], arquivos[arquivo])<<" ";
-            this -> indice_invertido_[palavra][arquivo] = this -> Ocorrencia(palavras_[palavra],arquivos[arquivo]);
-           /* if(indiceInvertido[palavra][arquivo]>0){
-                alguma coisa ++;
-            }*/
-        }
+        cout<<palavras_[palavra]<<" ";
+        for (int arquivo = 0; arquivo < 3; arquivo++){   
+            
+            this -> indice_invertido_[palavra][arquivo+1] = this -> Ocorrencia(palavras_[palavra],arquivos[arquivo+1]);
+            this -> indice_invertido_[palavra][0] = (char)palavra;
+            cout<<(int)this -> indice_invertido_[palavra][arquivo];
+      }
         cout<<endl;
     } 
     } 
