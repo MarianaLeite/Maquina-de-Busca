@@ -1,7 +1,6 @@
 #ifndef PALAVRA_H
 #define PALAVRA_H
 #include "Documento.h"
-#include "Palavra.h"
 #include <string>
 using namespace std;
 

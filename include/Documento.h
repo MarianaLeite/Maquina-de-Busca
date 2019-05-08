@@ -1,6 +1,5 @@
 #ifndef DOCUMENTO_H
 #define DOCUMENTO_H
-#include "Documento.h"
 #include <string>
 using namespace std;
 

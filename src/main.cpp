@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string>
-#include"Documento.h"
-#include "Palavra.h"
+#include"../include/Documento.h"
+#include "../include/Palavra.h"
 using namespace std;
 
 int main(){
