@@ -1,4 +1,4 @@
-# include "Arquivo.h"
+# include "../include/Documento.h"
 # include <string>
 #include <iostream>
 #include <fstream>
@@ -9,7 +9,7 @@ using namespace std;
     int* ocorrencias_;
     int tamanhoVetor_;
 
-Arquivo::Arquivo(){
+Documento::Documento(){
     this->elementos_ = new string[1];
     this->ocorrencias_ = new int[1];
     this->tamanho_ = 0;
@@ -30,14 +30,14 @@ char* removeAccented( char* str ) {
     return str;
 }
 
-bool Arquivo::pertence(string _palavra){
+bool Documento::pertence(string _palavra){
     for(int i=0;i<this->tamanho_;i++){
         if(this->elementos_[i] == _palavra) return true;
     }
     return false;
 }
 
-void Arquivo::insereElemento(string _insert){
+void Documento::insereElemento(string _insert){
     if(this->pertence(_insert)){
         for(int i=0;i<this->tamanho_;i++){
         if(this->elementos_[i] == _insert) ocorrencias_[i]++;
@@ -64,7 +64,7 @@ void Arquivo::insereElemento(string _insert){
     }
 }
     
-int Arquivo::ocorrencias(string _elemento){
+int Documento::ocorrencias(string _elemento){
     for (int i=0;i < this->tamanho_;i++){
         if (elementos_[i] == _elemento){
             return ocorrencias_[i];
@@ -73,14 +73,14 @@ int Arquivo::ocorrencias(string _elemento){
     return 0;
 }
 
-string Arquivo::palavra(int _indice){
+string Documento::palavra(int _indice){
     if(_indice <= this->tamanho_){
         return this->elementos_[_indice];
     }
     return "";
 }
 
-void Arquivo::leArquivo(string nomeArquivo){    
+void Documento::leArquivo(string nomeArquivo){    
     bool ignoraQuebraLinha = false;
     char rd;
     string palavra("");
@@ -102,15 +102,17 @@ void Arquivo::leArquivo(string nomeArquivo){
             }
             if(palavra != "") this->insereElemento(palavra);
             palavra = "";
+            
         }
+        arquivo.close();
     }else cout<<"Nao abriu o arquivo "<<nomeArquivo<<endl;
 }
 
-int Arquivo::tamanho(){
+int Documento::tamanho(){
     return this->tamanho_;
 }
 
-Arquivo::~Arquivo(){
+Documento::~Documento(){
     delete [] elementos_;
     delete [] ocorrencias_; 
 }

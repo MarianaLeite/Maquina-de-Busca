@@ -1,6 +1,5 @@
-#ifndef arquivo_h
-#define arquivo_h
-#include "Arquivo.h"
+#ifndef DOCUMENTO_H
+#define DOCUMENTO_H
 #include <string>
 using namespace std;
 
@@ -10,11 +9,11 @@ using namespace std;
 
 
 
-class Arquivo{
+class Documento{
     public:
     
     //cria um arquivo vazio
-    Arquivo();
+    Documento();
     //testa se uma palavra está presente no arquivo.
     bool pertence( string _palavra);
     
@@ -33,7 +32,7 @@ class Arquivo{
     //retorna quantidade de elementos.
     int tamanho();
 
-    ~Arquivo();
+    ~Documento();
     
     private:
     int tamanhoVetor_;
