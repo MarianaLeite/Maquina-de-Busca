@@ -1,28 +1,64 @@
 #ifndef PALAVRA_H
 #define PALAVRA_H
-#include "Documento.h"
+
 #include <string>
+
 using namespace std;
 
-class Palavras{
-    public: 
-    // cria um vetor de elementos que recebe as palavras lidos da coleção de documentos
-        Palavras(Documento colecao);
+/**
+ * @brief 
+ * 
+ */
+class Palavra{
 
-    // Insere as palavras da colecao no vetor palavras
-        void Insere_palavras(Documento colecao);
-    
-    // Retorna a quantidade de vezes que a palavra aparece no documento 
-        int Ocorrencia(string palavra, string nome_arquivo);
-
-    //índice invertido: Uma matriz cujo índice das linhas são as palavras e as colunas indicam a presença no documento 
-       void Indice_invertido();
     private:
-        int qnt_palavras_;
-        string* palavras_;
-        int* ocorrencia;
-        string* indice_invertido_;
-};
 
+    /**
+     * @brief Conjunto de caracteres não especiais de representação de Palavra
+     * 
+     */
+    string palavra_;
+
+    /**
+     * 
+     * @brief Método que converte caracteres especiais
+     * 
+     * 
+     * @param x String com caracteres especiais
+     */
+    void converter(const string &x);
+    
+    public:
+
+    /**
+     * @brief Construtor do objeto Palavra
+     * 
+     * @param x String com caracteres expeciais
+     */
+    Palavra(const string &x);
+
+    /**
+     * @brief Método que retorna o conjunto de caracteres de representação de Palavra
+     * 
+     * @return string
+     */
+    string paraString();
+
+    /**
+     * @brief Método que verifica a igualdade entre o objeto corrente e {@x}
+     * 
+     * @param x Objeto Palavra
+     * @return true Se os objetos são iguais
+     * @return false Se os objetos são diferentes
+     */
+    bool operator==(const Palavra &x);
+
+    /**
+     * @brief Método que atribui {@x} ao objeto corrente 
+     * 
+     * @param x Objeto Palavra
+     */
+    void operator=(const Palavra &x);
+};
 
 #endif

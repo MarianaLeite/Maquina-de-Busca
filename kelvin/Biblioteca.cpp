@@ -1,26 +1,24 @@
 #include <vector>
+#include <map>
 #include <string>
 #include <iostream>
 #include <fstream>
 #include <cmath>
 #include "Biblioteca.h"
-using std::cout;
- struct Palavra{   
+using namespace std;
+ 
+struct Palavra
+{   
     string textoPalavra;
     int ocorrenciasNaColecao;
     float pesoNaColecao; //idf(inverse document frequence) 
 };
-struct Documento{
+
+struct Documento
+{
     string nomeDocumento;
     vector<float> vetorial; //representação vetorial do documento na colecao
 };
-
-
-Biblioteca::Biblioteca(){
-    
-    
-}
-
 
 char* removeAccented( char* str ) {
     char *p = str;
@@ -51,6 +49,7 @@ bool Biblioteca::documentoPertence(string nomeDocumento)const{
     }
     return false;
 }
+
 void Biblioteca::inserirDocumento(string nomeDocumento){
     
     Documento d;
@@ -101,6 +100,7 @@ string lePalavra(ifstream& arquivo){
     bool ignoraQuebraLinha = false;
     string palavra;
     char caracter;
+    
     while(1){
         arquivo.get(caracter);
         if(caracter == ' ' || (caracter =='\n'&& !ignoraQuebraLinha) || arquivo.eof()) break;//encerra palavra em espaco, fim de linha ou fim do arquivo

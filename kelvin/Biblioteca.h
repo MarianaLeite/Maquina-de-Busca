@@ -2,6 +2,7 @@
 #define DOCUMENTO_H
 #include <string>
 #include <vector>
+
 using namespace std;
 class VetorBuscaRn;
 /*Tipo abstrato de dados destinado a representar uma biblioteca de busca, armazenando
@@ -11,6 +12,7 @@ class VetorBuscaRn;
  */
 
     struct Palavra;
+    
     struct Documento;
 
     class Biblioteca{
@@ -51,10 +53,9 @@ class VetorBuscaRn;
     int indiceDaPalavra (string palavra)const;
     int indiceDoDocumento (string documento)const;
 
-    vector <Palavra> palavras_;
-    vector <Documento> documentos_;
-    vector <vector<int>> indiceInvertido_;
+    map<Palavra,vector<const Documento&>> indiceInvertido_;
+    Palavra x;
 
-
+    int a = indiceInvertido_[x].size();
 };
 #endif

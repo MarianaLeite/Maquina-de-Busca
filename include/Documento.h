@@ -1,51 +1,73 @@
 #ifndef DOCUMENTO_H
 #define DOCUMENTO_H
+
+#include <map>
 #include <string>
+#include "Palavra.h"
+
 using namespace std;
 
-/*Tipo abstrato de dados destinado a representar um arquivo para mecanismo de busca, armazenando
-  todas as palavras contidas e o numero de aocorrencias de cada uma normalizando as palavras em 
-  letras minusculas e removendo pontuacao. Letras acentuadas serao descartadas*/
-
-
-
+/**
+ * @brief Classe de implementação do objeto Documento
+ * 
+ */
 class Documento{
-    public:
-    
-    //cria um arquivo vazio
-    Documento();
-    //testa se uma palavra está presente no arquivo.
-    bool pertence( string _palavra);
-    
-    //insere uma ocorrencia da palavra no arquivo.
-    void insereElemento(string _insert);
-    
-    //retorna numero de ocorrencias de _elemento.
-    int ocorrencias(string _elemento);
-    
-    //retorna o elemento correspondente a indice.
-    string palavra(int indice);
-
-    //Cria a representacao de um arquivo a partir do seu nome.
-    void leArquivo(string nomeArquivo);
-
-    //retorna quantidade de elementos.
-    int tamanho();
-
-    ~Documento();
     
     private:
-    int tamanhoVetor_;
-    int tamanho_;
-    string* elementos_;
-    int* ocorrencias_;
 
+    /**
+     * @brief 
+     * 
+     */
+    string nome_;
 
+    /**
+     * @brief Conjunto de chave valor em que chave é a palavra existente no documento
+     * e, valor, o termo frequencia desta no documento
+     * 
+     */
+    map<Palavra,int> frequencia_;
+    
+    public:
 
+    /**
+     * @brief Construtor do objeto Documento
+     * 
+     * @param x Nome do documento
+     */
+    Documento(const string &x);
+
+    /**
+     * @brief Método que insere {@x} no conjunto de palavras do documento
+     * 
+     * @param x 
+     */
+    void inserirPalavra(const string &x);
+
+    /**
+     * @brief Método que retorna a frequência do termo {@x} no documento
+     * 
+     * @param x 
+     * @return int Quantidade de vezes que {@x} aparece no documento
+     */
+    int frequencia(const Palavra &x);
+
+    /**
+     * @brief 
+     * 
+     * @param x 
+     * @return true 
+     * @return false 
+     */
+    bool operator==(const Documento &x);
+
+    /**
+     * @brief 
+     * 
+     * @param x 
+     */
+    void operator=(const Documento &x);
 
 };
-
-
-
 
 #endif
