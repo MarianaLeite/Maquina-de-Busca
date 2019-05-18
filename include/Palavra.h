@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * @brief 
+ * @brief Classe de implementação do objeto Palavra
  * 
  */
 class Palavra{
@@ -21,8 +21,7 @@ class Palavra{
 
     /**
      * 
-     * @brief Método que converte caracteres especiais
-     * 
+     * @brief Método que converte caracteres especiais para não-especiais
      * 
      * @param x String com caracteres especiais
      */
@@ -33,7 +32,7 @@ class Palavra{
     /**
      * @brief Construtor do objeto Palavra
      * 
-     * @param x String com caracteres expeciais
+     * @param x String a ser convertida para caracteres não-especiais
      */
     Palavra(const string &x);
 
