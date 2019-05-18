@@ -16,7 +16,3 @@ int Documento::frequencia(const Palavra &x) {
 bool Documento::operator==(const Documento &x){
 
 }
-
-void Documento::operator=(const Documento &x){
-
-}

@@ -25,7 +25,7 @@ class Palavra{
      * 
      * @param x String com caracteres especiais
      */
-    void converter(const string &x);
+    string converter(const string &x);
     
     public:
 
@@ -34,7 +34,7 @@ class Palavra{
      * 
      * @param x String a ser convertida para caracteres não-especiais
      */
-    Palavra(const string &x);
+    Palavra(string x);
 
     /**
      * @brief Método que retorna o conjunto de caracteres de representação de Palavra

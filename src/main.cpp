@@ -1,13 +1,14 @@
 #include <dirent.h>
 #include <iostream>
 #include <string>
+#include "../include/Palavra.h"
 #include <fstream>
 #include <vector>
 
 using namespace std;
 
 int main(){
-    ifstream arquivo;
+  /*  ifstream arquivo;
     string palavra;
     vector <string> nome_dos_arquivos = lista_arquivo("C:/UFMG/Maquina-de-Busca/src");
     arquivo.open("C:/UFMG/Maquina-de-Busca/src/" + nome_dos_arquivos[3]);
@@ -49,7 +50,10 @@ vector<string> lista_arquivo(string nome_diretorio){
         i++;
     }
     closedir(diretorio);
-    return nome_arquivos;
+    return nome_arquivos;*/
+
+    Palavra a ("xaaa·È¡Û”Í Ìœ˚⁄~~--");
+    std::cout << a.paraString();
 }
     
     
