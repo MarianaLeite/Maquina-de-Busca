@@ -52,7 +52,7 @@ vector<string> lista_arquivo(string nome_diretorio){
     closedir(diretorio);
     return nome_arquivos;*/
 
-    Palavra a ("xaaáááó olá, marilene. arco-íris!!!, opaòÓáêêÜü~~--¶	µ	³®	¯	¬	ÿ÷	ö	");
+    Palavra a ("xaaáááó olá, ººº éÊÊiÕ marilene. arco-íris!!!, opaòÓáêêÜü~~--¶	µ	³®	¯	¬	ÿ÷	ö	");
     std::cout << a.paraString();
 }
     
