@@ -52,6 +52,6 @@ bool Palavra::operator==(const Palavra &x){
 }
 
 void Palavra::operator=(const Palavra &x){
-
+    this -> palavra_ = x.palavra_;
 }
 

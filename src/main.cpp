@@ -52,8 +52,15 @@ vector<string> lista_arquivo(string nome_diretorio){
     closedir(diretorio);
     return nome_arquivos;*/
 
-    Palavra a ("xaaáááó olá, ººº éÊÊiÕ marilene. arco-íris!!!, opaòÓáêêÜü~~--¶	µ	³®	¯	¬	ÿ÷	ö	");
-    std::cout << a.paraString();
+    Palavra a ("Árvores");
+    std::cout << a.paraString() <<std::endl;
+    Palavra b ("Olá");
+    std::cout << b.paraString()<<std::endl;
+    a = b; 
+    std::cout << a.paraString() <<std::endl;
+
+
+
 }
     
     
