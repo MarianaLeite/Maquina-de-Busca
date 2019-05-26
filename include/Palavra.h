@@ -58,7 +58,7 @@ class Palavra{
      * @return true Se os objetos são iguais
      * @return false Se os objetos são diferentes
      */
-    bool operator==(const Palavra &x);
+    bool operator==(const Palavra &x)const;
 
     /**
      * @brief Método que atribui {@x} ao objeto corrente 
@@ -74,7 +74,7 @@ class Palavra{
      * @return true Se o objeto corrente é menor
      * @return false Se o objeto corrente é maior
      */
-    bool operator<(const Palavra &x);
+    bool operator<(const Palavra &x)const;
 };
 
 #endif
