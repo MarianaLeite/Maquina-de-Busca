@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 #include <string>
-#include "Palavra.h"
+#include "../include/Palavra.h"
 
 using namespace std;
 
@@ -59,7 +59,22 @@ class Documento{
      * @return int Quantidade de vezes que {@x} aparece no documento
      */
     int frequencia(const Palavra &x);
+    
+    /**
+     * @brief Método que retorna um vector com todas as palavras do arquivo sem repetição
+     * 
+     * 
+     * @return vector<Palavra> todas as palavras do documento
+     */    
+    vector<Palavra> palavras() const;
 
+    /**
+     * @brief Método que retorna o nome do documento
+     * 
+     * 
+     * @return string nome do documento
+     */
+    string nome() const;
     /**
      * @brief Verifica se o nome do documento {@x} é igual ao nome do documento corrente,
      * o que determina que se trata do mesmo documento
@@ -68,7 +83,9 @@ class Documento{
      * @return true Se o nome dos documentos são iguais
      * @return false Se o nome dos documentos são diferentes
      */
-    bool operator==(const Documento &x);
+    bool operator==(const Documento &x)const;
+
+    bool operator<(const Documento &x)const;
 
 };
 

@@ -1,9 +1,7 @@
 #ifndef BIBLIOTECA_H
 #define BIBLIOTECA_H
-
-#include <set>
-#include "Documento.h"
-#include "Palavra.h"
+#include "../include/Documento.h"
+#include "../include/Palavra.h"
 
 using namespace std;
 
@@ -19,7 +17,7 @@ class Biblioteca{
      * @brief Lista de documentos existentes na biblioteca
      * 
      */
-    set<Documento> documentos_;
+    vector<Documento> documentos_;
 
     /**
      * @brief Para cada palavra, armazena a lista de frequência dessa por
@@ -27,12 +25,6 @@ class Biblioteca{
      * 
      */
     map<Palavra,vector<int>> indiceInvertido_;
-
-    /**
-     * @brief Lista ordenada de documentos similares com a busca
-     * 
-     */
-    set<double,const Documento&> ranking_;
     
     /**
      * @brief Método que insere o documento de nome {@x} ao conjunto de documentos
@@ -59,7 +51,7 @@ class Biblioteca{
      * @param y Objeto Palavra
      * @return double Coordenada
      */
-    double coordenada(const Documento &x, const Palavra &y);
+    double coordenada( Documento &x, const Palavra &y);
 
     /**
      * @brief Método que retorna, numa escala de 0 até 1, a similaridade entre
@@ -70,14 +62,7 @@ class Biblioteca{
      * @param busca Objeto Documento
      * @return double Similaridade
      */
-    double similaridade(const Documento &x, const Documento busca);
-
-    /**
-     * @brief Método que insere os documentos no ranking de similaridade com
-     * a busca
-     * 
-     */
-    void ranquear();
+    double similaridade(Documento &x, Documento &busca);
 
     public:
 
@@ -87,6 +72,8 @@ class Biblioteca{
      * @param x Diretório completo da biblioteca
      */
     Biblioteca(const string &x);
+
+    vector<string>busca(const string);
 
 };
 
