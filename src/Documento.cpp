@@ -30,3 +30,4 @@ bool Documento::operator==(const Documento &x)const{
 }
 bool Documento::operator<(const Documento &x)const{
     return (this->nome_<x.nome_);
+}
