@@ -9,12 +9,11 @@ Palavra::Palavra(string x){
 
 string Palavra::converter(const string &x){
     string y;
-    char z;
     
-    for (int i = 0; i < x.length(); i++){
-        z = tolower(x[i]);
-        z = removerAcento(z);
-        if(iswdigit(z) || iswalnum(z)) y += z;
+    for (char i : x){
+        i = tolower(i);
+        i = removerAcento(i);
+        if(iswdigit(i) || iswalnum(i)) y += i;
     }
     
     return y;
@@ -40,12 +39,14 @@ string Palavra::paraString(){
 }
 
 bool Palavra::operator==(const Palavra &x)const{
+
     return (this->palavra_ == x.palavra_);
 }
 
 void Palavra::operator=(const Palavra &x){
     this->palavra_ = x.palavra_;
 }
+
 
 bool Palavra::operator<(const Palavra &x)const{
     return (this->palavra_ < x.palavra_);
