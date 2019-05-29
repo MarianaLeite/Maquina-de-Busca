@@ -38,8 +38,7 @@ string Palavra::paraString(){
     return this->palavra_;
 }
 
-bool Palavra::operator==(const Palavra &x)const{
-
+bool Palavra::operator==(const Palavra &x) const {
     return (this->palavra_ == x.palavra_);
 }
 
@@ -48,6 +47,6 @@ void Palavra::operator=(const Palavra &x){
 }
 
 
-bool Palavra::operator<(const Palavra &x)const{
+bool Palavra::operator<(const Palavra &x) const {
     return (this->palavra_ < x.palavra_);
 }

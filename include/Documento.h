@@ -66,7 +66,7 @@ class Documento{
      * 
      * @return vector<Palavra> todas as palavras do documento
      */    
-    vector<Palavra> palavras() const;
+    set<Palavra> palavras() const;
 
     /**
      * @brief Método que retorna o nome do documento
@@ -75,6 +75,7 @@ class Documento{
      * @return string nome do documento
      */
     string nome() const;
+    
     /**
      * @brief Verifica se o nome do documento {@x} é igual ao nome do documento corrente,
      * o que determina que se trata do mesmo documento
@@ -84,9 +85,6 @@ class Documento{
      * @return false Se o nome dos documentos são diferentes
      */
     bool operator==(const Documento &x)const;
-
-    bool operator<(const Documento &x)const;
-
 };
 
 #endif

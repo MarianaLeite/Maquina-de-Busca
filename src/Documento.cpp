@@ -1,10 +1,8 @@
-
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
-
 #include "../include/Documento.h"
-#include "../include/Palavra.h"
 #include <string>
+#include <set>
+
+usign namespace std;
 
 Documento::Documento(const string &x){
     this->nome_ = x;
@@ -17,17 +15,18 @@ void Documento::inserirPalavra(const Palavra &x){
 int Documento::frequencia(const Palavra& x) {
     return frequencia_[x];
 }
-vector<Palavra> Documento::palavras() const{
 
+set<Palavra> Documento::palavras() const {
+    set<Palavra> palavras;
+    map<Palavra,int>::iterator i;
+    
+    for(i = frequencia_.begin(); i != frequencia_.end(); ++i){
+        palavras.insert(i->first);
+    }
+
+    return palavras;
 }
 
-string Documento::nome()const{
+string Documento::nome() const {
     return this->nome_;
-}
-
-bool Documento::operator==(const Documento &x)const{
-
-}
-bool Documento::operator<(const Documento &x)const{
-    return (this->nome_<x.nome_);
 }
