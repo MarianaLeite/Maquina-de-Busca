@@ -3,14 +3,33 @@
 #include <cmath>
 #include<set>
 Biblioteca::Biblioteca(const string &x){
-    inserirDocumento("teste1.txt");
-    inserirDocumento("teste2.txt");
-    inserirDocumento("teste3.txt");
+    inserirDocumento(x);
 }
 
 void Biblioteca::inserirDocumento(const string &x){
     
     Documento doc(x);
+    ifstream arquivo;
+    arquivo.open(x);
+    string palavras_documento;
+    if (arquivo.is_open()){
+        while (!arquivo.eof()){
+            getline(arquivo,palavras_documento);
+        }
+        arquivo.close();
+    }else {
+        cout << "Deu ruim";
+    }
+    for (int i = 0; i < palavras_documento.size(); i++){
+        string auxiliar;
+        if (palavras_documento[i] != ' '){
+            auxilar.push_back(palavras_documento[i]);
+        }else if(palavras_documento[i] == ' '){
+            Palavra x(auxiliar);
+            auxiliar = ' ';
+        }
+
+    }
     for(Palavra& p : doc.palavras()){
         indiceInvertido_.insert(std::pair<Palavra,vector<int>>(p,vector<int>(documentos_.size())));
         indiceInvertido_[p].push_back(doc.frequencia(p));

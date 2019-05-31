@@ -59,6 +59,8 @@ vector<string> lista_arquivo(string nome_diretorio){
     a = b; 
     std::cout << a.paraString() <<std::endl;
 
+    Biblioteca x("Exemplo.txt");
+
 
 
 }
