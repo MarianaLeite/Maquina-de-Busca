@@ -26,6 +26,14 @@ class Palavra{
      * @param x String com caracteres especiais
      */
     string converter(const string &x);
+
+    /**
+     * @brief Método que remove o acento de {@x}
+     * 
+     * @param x Caracter acentuado
+     * @return char Caracter sem acento
+     */
+    char removerAcento(char x);
     
     public:
 
@@ -50,7 +58,7 @@ class Palavra{
      * @return true Se os objetos são iguais
      * @return false Se os objetos são diferentes
      */
-    bool operator==(const Palavra &x);
+    bool operator==(const Palavra &x)const;
 
     /**
      * @brief Método que atribui {@x} ao objeto corrente 
@@ -58,6 +66,15 @@ class Palavra{
      * @param x Objeto Palavra
      */
     void operator=(const Palavra &x);
+
+    /**
+     * @brief Método que verifica se o objeto corrente é menor que {@x}
+     * 
+     * @param x Objeto Palavra
+     * @return true Se o objeto corrente é menor
+     * @return false Se o objeto corrente é maior
+     */
+    bool operator<(const Palavra &x)const;
 };
 
 #endif

@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 #include <string>
-#include "Palavra.h"
+#include "../include/Palavra.h"
 
 using namespace std;
 
@@ -34,7 +34,7 @@ class Documento{
      * é sua coordenada na palavra i 
      * 
      */
-    vector<double> coordenadas_;
+    map<Palavra,double> coordenadas_;
     
     public:
 
@@ -46,12 +46,11 @@ class Documento{
     Documento(const string &x);
 
     /**
-     * @brief Método que converte {@x} em objeto Palavra e armazena no conjunto de 
-     * palavras do documento
+     * @brief Método que armazena {@x} no conjunto de palavras do documento
      * 
-     * @param x String a ser convertida em objeto Palavra
+     * @param x Objeto Palavra
      */
-    void inserirPalavra(const string &x);
+    void inserirPalavra(const Palavra &x);
 
     /**
      * @brief Método que retorna a frequência do termo {@x} no documento
@@ -60,7 +59,23 @@ class Documento{
      * @return int Quantidade de vezes que {@x} aparece no documento
      */
     int frequencia(const Palavra &x);
+    
+    /**
+     * @brief Método que retorna um vector com todas as palavras do arquivo sem repetição
+     * 
+     * 
+     * @return vector<Palavra> todas as palavras do documento
+     */    
+    set<Palavra> palavras() const;
 
+    /**
+     * @brief Método que retorna o nome do documento
+     * 
+     * 
+     * @return string nome do documento
+     */
+    string nome() const;
+    
     /**
      * @brief Verifica se o nome do documento {@x} é igual ao nome do documento corrente,
      * o que determina que se trata do mesmo documento
@@ -69,8 +84,7 @@ class Documento{
      * @return true Se o nome dos documentos são iguais
      * @return false Se o nome dos documentos são diferentes
      */
-    bool operator==(const Documento &x);
-
+    bool operator==(const Documento &x)const;
 };
 
 #endif
