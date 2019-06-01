@@ -49,7 +49,7 @@ class Palavra{
      * 
      * @return string
      */
-    string paraString();
+    string paraString() const;
 
     /**
      * @brief Método que verifica a igualdade entre o objeto corrente e {@x}

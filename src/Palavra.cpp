@@ -34,7 +34,7 @@ char Palavra::removerAcento(char x) {
     return x;
 }
 
-string Palavra::paraString(){
+string Palavra::paraString()const{
     return this->palavra_;
 }
 
