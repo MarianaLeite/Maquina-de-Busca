@@ -9,7 +9,7 @@
 using namespace std;
 
 /**
- * @brief Classe de implementa√ß√£o do objeto Documento
+ * @brief Classe de implementaÁ„o do objeto Documento
  * 
  */
 class Documento{
@@ -19,37 +19,37 @@ class Documento{
     double similaridade_;
 
     /**
-     * @brief Nome do documento e sua extens√£o
+     * @brief Nome do documento e sua extens„o
      * 
      */
     string nome_;
 
     /**
-     * @brief Conjunto de chave valor em que chave √© a palavra existente no documento
+     * @brief Conjunto de chave valor em que chave È a palavra existente no documento
      * e, valor, o termo frequencia desta no documento
      * 
      */
     map<Palavra,int> frequencia_;
     
     /**
-     * @brief Coordenadas do documento na biblioteca, onde cada posi√ß√£o i do vetor
-     * √© sua coordenada na palavra i 
+     * @brief Coordenadas do documento na biblioteca, onde cada posiÁ„o i do vetor
+     * È sua coordenada na palavra i 
      * 
      */
     map<Palavra,double> coordenadas_;
 
     /**
-     * @brief M√©todo que armazena {@x} no conjunto de palavras do documento
+     * @brief MÈtodo que armazena {@x} no conjunto de palavras do documento
      * 
      * @param x Objeto Palavra
      */
     void inserirPalavra(const Palavra &x);
 
     /**
-     * @brief M√©todo que abre documento .txt de nome {@x} e converte em objeto 
+     * @brief MÈtodo que abre documento .txt de nome {@x} e converte em objeto 
      * Documento
      * 
-     * @param x Diret√≥rio e nome do documento e.g.: C:/Jao/Documentos/Jao.txt
+     * @param x DiretÛrio e nome do documento e.g.: C:/Jao/Documentos/Jao.txt
      */
     void lerDocumento(string x);
 
@@ -64,12 +64,12 @@ class Documento{
     /**
      * @brief Construtor do objeto Documento
      * 
-     * @param x Nome do documento e sua extens√£o
+     * @param x Nome do documento e sua extens„o
      */
     Documento(const string &x);
 
     /**
-     * @brief M√©todo que retorna a frequ√™ncia do termo {@x} no documento
+     * @brief MÈtodo que retorna a frequÍncia do termo {@x} no documento
      * 
      * @param x Palavra a ser buscada no documento
      * @return int Quantidade de vezes que {@x} aparece no documento
@@ -77,7 +77,7 @@ class Documento{
     int frequencia(const Palavra &x);
     
     /**
-     * @brief M√©todo que retorna um vector com todas as palavras do arquivo sem repeti√ß√£o
+     * @brief MÈtodo que retorna um vector com todas as palavras do arquivo sem repetiÁ„o
      * 
      * 
      * @return vector<Palavra> todas as palavras do documento
@@ -85,7 +85,7 @@ class Documento{
     vector<Palavra> palavras() const;
 
     /**
-     * @brief M√©todo que retorna o nome do documento
+     * @brief MÈtodo que retorna o nome do documento
      * 
      * 
      * @return string nome do documento
@@ -93,8 +93,8 @@ class Documento{
     string nome() const;
 
     /**
-     * @brief M√©todo que configura documento com o texto {@busca} de busca somente
-     * se o documento estiver vazio (ou n√£o inicializado com o nome do arquivo 
+     * @brief MÈtodo que configura documento com o texto {@busca} de busca somente
+     * se o documento estiver vazio (ou n„o inicializado com o nome do arquivo 
      * correspondente)
      * 
      * @param busca Texto de busca
@@ -116,12 +116,12 @@ class Documento{
     bool operator <(Documento &d)const;
     
     /**
-     * @brief Verifica se o nome do documento {@x} √© igual ao nome do documento corrente,
+     * @brief Verifica se o nome do documento {@x} È igual ao nome do documento corrente,
      * o que determina que se trata do mesmo documento
      * 
      * @param x Objeto Documento
-     * @return true Se o nome dos documentos s√£o iguais
-     * @return false Se o nome dos documentos s√£o diferentes
+     * @return true Se o nome dos documentos s„o iguais
+     * @return false Se o nome dos documentos s„o diferentes
      */
     bool operator==(const Documento &x)const;
 

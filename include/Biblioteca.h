@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * @brief Classe de implementa√ß√£o do objeto Biblioteca
+ * @brief Classe de implementaÁ„o do objeto Biblioteca
  * 
  */
 class Biblioteca{
@@ -20,23 +20,23 @@ class Biblioteca{
     vector<Documento> documentos_;
 
     /**
-     * @brief Para cada palavra, armazena a lista de frequ√™ncia dessa por
+     * @brief Para cada palavra, armazena a lista de frequÍncia dessa por
      * documento
      * 
      */
     map<Palavra,vector<int>> indiceInvertido_;
     
     /**
-     * @brief M√©todo que insere o documento de nome {@x} ao conjunto de documentos
+     * @brief MÈtodo que insere o documento de nome {@x} ao conjunto de documentos
      * da biblioteca
      * 
-     * @param x Nome e extens√£o do documento
+     * @param x Nome e extens„o do documento
      */
     void inserirDocumento(const string &x);
 
     /**
-     * @brief M√©todo que retorna a import√¢ncia da palavra {@x} na biblioteca
-     * dada pela equa√ß√£o idf
+     * @brief MÈtodo que retorna a import‚ncia da palavra {@x} na biblioteca
+     * dada pela equaÁ„o idf
      * 
      * @param x Objeto Palavra
      * @return double idf
@@ -44,8 +44,8 @@ class Biblioteca{
     double frequenciaInversa(const Palavra &x);
 
     /**
-     * @brief M√©todo que retorna a coordenada de {@x} no eixo {@y} dada pela
-     * equa√ß√£o tf*idf
+     * @brief MÈtodo que retorna a coordenada de {@x} no eixo {@y} dada pela
+     * equaÁ„o tf*idf
      * 
      * @param x Objeto Documento
      * @param y Objeto Palavra
@@ -54,9 +54,9 @@ class Biblioteca{
     double coordenada( Documento &x, const Palavra &y);
 
     /**
-     * @brief M√©todo que retorna, numa escala de 0 at√© 1, a similaridade entre
-     * o documento {@x} e a busca, dada por cosseno entre os vetores de representa√ß√£o
-     * dos par√¢metros
+     * @brief MÈtodo que retorna, numa escala de 0 atÈ 1, a similaridade entre
+     * o documento {@x} e a busca, dada por cosseno entre os vetores de representaÁ„o
+     * dos par‚metros
      * 
      * @param x Objeto Documento
      * @param busca Objeto Documento
@@ -69,7 +69,7 @@ class Biblioteca{
     /**
      * @brief Construtor do objeto Biblioteca
      * 
-     * @param x Diret√≥rio completo da biblioteca
+     * @param x DiretÛrio completo da biblioteca
      */
     Biblioteca(const string &x);
     
