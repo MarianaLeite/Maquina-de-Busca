@@ -4,12 +4,13 @@
 #include <iostream>
 int main(){
     vector<string> resultado;
-    string busca;
+    string argBusca;
     Biblioteca a("./dirbusca");
-
-    std::cin>>busca;
-    resultado = a.busca(busca);
+    cout<<"Entre com os argumentos da busca:"<<endl;
+    getline(cin,argBusca);
+    resultado = a.busca(argBusca);
     for (string s:resultado){
         cout << s << endl;
     }
+
 }

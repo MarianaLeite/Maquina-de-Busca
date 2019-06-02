@@ -1,6 +1,7 @@
 #include "../include/Biblioteca.h"
 #include "../include/Documento.h"
 #include <cmath>
+#include<list>
 #include<set>
 #include<string>
 #include<fstream>
@@ -37,6 +38,14 @@ vector <string> lista_arquivo(string nome_diretorio){
 
 Biblioteca::Biblioteca(const string &x){
     inserirDocumento(x);
+
+}
+
+Biblioteca::Biblioteca(const string &x){
+    inserirDocumento("teste1.txt");
+    inserirDocumento("teste2.txt");
+    inserirDocumento("teste3.txt");
+    inserirDocumento("teste4.txt");
 }
 
 void Biblioteca::inserirDocumento(const string &x){
@@ -71,33 +80,26 @@ void Biblioteca::inserirDocumento(const string &x){
     for(map<Palavra,vector<int>>::iterator i = indiceInvertido_.begin(); i != indiceInvertido_.end();++i ){
         i->second.resize(documentos_.size());
     }
-    //teste impressao do indice invertido
-    for(map<Palavra,vector<int>>::iterator i = indiceInvertido_.begin(); i != indiceInvertido_.end();++i ){
-        cout<< i->first.paraString()<<" ";
-        for (int j:i->second){
-            cout<<j<<" ";
-        }
-        cout<<endl;
-    }
-    cout<<endl<<endl;
-    //fim do teste impressao do indice invertido
 }
 
 double Biblioteca::frequenciaInversa(const Palavra &x){
     double N,n;
     N = documentos_.size();
     map<Palavra,vector<int>>::iterator i = indiceInvertido_.find(x);
-    if (i == indiceInvertido_.end())return 0;
+    if (i == indiceInvertido_.end()){
+        return 0;    
+    }
     else{ 
         n = 0;
         for(int d=0; d < documentos_.size(); d++){
             if(i->second[d] > 0) n++;
         }
-    return log(N/n);
+        return log(N/n);
     }
 }
 
 double Biblioteca::coordenada(Documento &x, const Palavra &y){
+    
     return x.frequencia(y)*frequenciaInversa(y);
 }
 
@@ -117,6 +119,7 @@ double Biblioteca::similaridade( Documento &x, Documento& busca){
     }
     moduloX = sqrt(moduloX);
     moduloBusca = sqrt(moduloBusca);
+    if(moduloBusca==0||moduloX==0)return 0;
     return produtoEscalar/(moduloBusca * moduloX);
 }
 
@@ -124,21 +127,14 @@ vector<string> Biblioteca::busca(const string argumentos){
     vector<string> saida;
     Documento buscar;
     buscar.configurarComoBusca(argumentos);
-    //teste impressao busca
-    cout<<"palavras da busca: "<<endl;
-    for (Palavra& p: buscar.palavras()){
-        cout<<p.paraString()<<" ";
+    list<Documento> ranking;
+    for (Documento& d : documentos_){
+        d.similaridade(similaridade(d,buscar));
+        ranking.push_back(d);
     }
-    cout<<endl;
-    //fim teste impressao busca
-    map<float,string> cossenos;
-    for (Documento d : documentos_){
-        cossenos[similaridade(d,buscar)]=d.nome();
-        cout<<"similaridade de "<<d.nome()<<" = "<<similaridade(d,buscar)<<endl;
-    }
-    for(map<float,string>::iterator i=cossenos.begin();i!= cossenos.end();++i){
-        saida.push_back(i->second);
+    ranking.sort();
+    for (std::list<Documento>::reverse_iterator i=ranking.rbegin();i!=ranking.rend();++i ){
+        saida.push_back(i->nome());
     }
     return saida;
 }
-

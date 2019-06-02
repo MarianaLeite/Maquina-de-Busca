@@ -16,6 +16,8 @@ class Documento{
     
     private:
 
+    double similaridade_;
+
     /**
      * @brief Nome do documento e sua extensão
      * 
@@ -107,6 +109,11 @@ class Documento{
      * @return true Se o nome dos documentos são iguais
      * @return false Se o nome dos documentos são diferentes
      */
+
+    void similaridade(double x);
+
+    bool operator <(Documento &d)const;
+
     bool operator==(const Documento &x)const;
 };
 
