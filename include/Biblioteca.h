@@ -74,6 +74,12 @@ class Biblioteca{
     Biblioteca(const string &x);
     
     /**
+     * @brief Construtor do objeto Biblioteca, constoi uma biblioteca vazia
+     * 
+     */
+    Biblioteca();
+    
+    /**
      * @brief Resposta da busca
      * 
      * @param x String com todas as palavras da busca

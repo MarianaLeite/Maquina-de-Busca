@@ -1,5 +1,6 @@
 #include "../include/Biblioteca.h"
 #include "../include/Documento.h"
+#include "../include/Palavra.h"
 #include <cmath>
 #include<list>
 #include<set>
@@ -9,6 +10,8 @@
 #include <vector>
 
 #include <iostream>//remover
+Biblioteca::Biblioteca(){
+}
 
 Biblioteca::Biblioteca(const string &x){
     
