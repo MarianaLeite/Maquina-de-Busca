@@ -75,6 +75,7 @@ class Palavra{
      * @return false Se o objeto corrente é maior
      */
     bool operator<(const Palavra &x)const;
+    friend class Palavra_teste;
 };
 
 #endif
