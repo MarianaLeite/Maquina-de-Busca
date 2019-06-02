@@ -44,11 +44,11 @@ class Palavra_teste {
 
 
 TEST_SUITE("Testa a remo??o de caracteres especiais da palavra"){
-    Palavra a("ol?");
+    Palavra a("olá");
     
     TEST_CASE("Remover acentos"){
-        char a = '?';
-        char b = '?';
+        char a = 'á';
+        char b = 'Á';
         
         a = Palavra_teste::removerAcento(a);
         CHECK(a == 'a');
@@ -58,7 +58,7 @@ TEST_SUITE("Testa a remo??o de caracteres especiais da palavra"){
 
     TEST_CASE("Converter"){
         string  a = "Ola";
-        string b = "?l??";
+        string b = "ôlâê";
         a = Palavra_teste::converter(a);
         CHECK(a == "ola");
         b = Palavra_teste::converter(b);
@@ -67,31 +67,31 @@ TEST_SUITE("Testa a remo??o de caracteres especiais da palavra"){
     
     TEST_CASE("paraString"){
         CHECK(a.paraString() == "ola");
-        Palavra b("p?");
+        Palavra b("pé");
         CHECK(b.paraString() == "pe");
-        Palavra c("ol?");
+        Palavra c("olé");
         CHECK(c.paraString() == "ole");
-        Palavra d("?");
+        Palavra d("é");
         CHECK(d.paraString() == "e");
-        Palavra e("ent?o");
+        Palavra e("então");
         CHECK(e.paraString() == "entao");
-        Palavra f("Fund?o");
+        Palavra f("Fundão");
         CHECK(f.paraString() == "fundao");
-        Palavra g("Xumbalai?");
+        Palavra g("Xumbalaiê");
         CHECK(g.paraString() == "xumbalaie");
-        Palavra h("N?o!!!!");
+        Palavra h("NÂo!!!!");
         CHECK(h.paraString() == "nao");
-        Palavra i("????~y~u~i???");
+        Palavra i("êêÊéÿûíÂãô");
         CHECK (i.paraString() == "eeeeyuiaao");
-        Palavra j("???????????????");
+        Palavra j("âêîôûáéíóúäëïöü");
         CHECK (j.paraString() == "aeiouaeiouaeiou" );
-        Palavra k("N?o!!!!");
+        Palavra k("Não!!!!");
         CHECK(k.paraString() == "nao");
-        Palavra l("P?o!P?nN!!!");
+        Palavra l("Pão!PânN!!!");
         CHECK(l.paraString() == "paopann");
-        Palavra m("??");
+        Palavra m("Éé");
         CHECK(m.paraString() == "ee");
-        Palavra n("AL?,HA");
+        Palavra n("ALô,HA");
         CHECK (n.paraString() == "aloha");
     }
     
@@ -115,7 +115,7 @@ TEST_SUITE("Testa a remo??o de caracteres especiais da palavra"){
     }
 
     TEST_CASE("Operator <"){
-        Palavra a("?rvores");
+        Palavra a("Árvores");
         Palavra b("Bal?o");
         string x = "arvores";
         string y = "balao";

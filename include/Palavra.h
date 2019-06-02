@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * @brief Classe de implementa√ß√£o do objeto Palavra
+ * @brief Classe de implementaÁ„o do objeto Palavra
  * 
  */
 class Palavra{
@@ -14,21 +14,21 @@ class Palavra{
     private:
 
     /**
-     * @brief Conjunto de caracteres n√£o especiais de representa√ß√£o de Palavra
+     * @brief Conjunto de caracteres n„o especiais de representaÁ„o de Palavra
      * 
      */
     string palavra_;
 
     /**
      * 
-     * @brief M√©todo que converte caracteres especiais para n√£o-especiais
+     * @brief MÈtodo que converte caracteres especiais para n„o-especiais
      * 
      * @param x String com caracteres especiais
      */
     string converter(const string &x);
 
     /**
-     * @brief M√©todo que remove o acento de {@x}
+     * @brief MÈtodo que remove o acento de {@x}
      * 
      * @param x Caracter acentuado
      * @return char Caracter sem acento
@@ -40,42 +40,43 @@ class Palavra{
     /**
      * @brief Construtor do objeto Palavra
      * 
-     * @param x String a ser convertida para caracteres n√£o-especiais
+     * @param x String a ser convertida para caracteres n„o-especiais
      */
     Palavra(string x);
 
     /**
-     * @brief M√©todo que retorna o conjunto de caracteres de representa√ß√£o de Palavra
+     * @brief MÈtodo que retorna o conjunto de caracteres de representaÁ„o de Palavra
      * 
      * @return string
      */
     string paraString() const;
 
     /**
-     * @brief M√©todo que verifica a igualdade entre o objeto corrente e {@x}
+     * @brief MÈtodo que verifica a igualdade entre o objeto corrente e {@x}
      * 
      * @param x Objeto Palavra
-     * @return true Se os objetos s√£o iguais
-     * @return false Se os objetos s√£o diferentes
+     * @return true Se os objetos s„o iguais
+     * @return false Se os objetos s„o diferentes
      */
     bool operator==(const Palavra &x)const;
 
     /**
-     * @brief M√©todo que atribui {@x} ao objeto corrente 
+     * @brief MÈtodo que atribui {@x} ao objeto corrente 
      * 
      * @param x Objeto Palavra
      */
     void operator=(const Palavra &x);
 
     /**
-     * @brief M√©todo que verifica se o objeto corrente √© menor que {@x}
+     * @brief MÈtodo que verifica se o objeto corrente È menor que {@x}
      * 
      * @param x Objeto Palavra
-     * @return true Se o objeto corrente √© menor
-     * @return false Se o objeto corrente √© maior
+     * @return true Se o objeto corrente È menor
+     * @return false Se o objeto corrente È maior
      */
     bool operator<(const Palavra &x)const;
     friend class Palavra_teste;
+    friend class Documento_teste;
 };
 
 #endif
