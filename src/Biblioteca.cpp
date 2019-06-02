@@ -10,68 +10,29 @@
 
 #include <iostream>//remover
 
-vector <string> lista_arquivo(string nome_diretorio){
+Biblioteca::Biblioteca(const string &x){
+    
     DIR *diretorio;
-    int i = 0;
-    vector <string> nome_arquivos;
     struct dirent *entrada;
-    diretorio = opendir(nome_diretorio.c_str());
-
+    diretorio = opendir(x.c_str());
     if (diretorio == NULL){
-        cout << "Nao foi possivel abrir o arquivo" << endl;
+        cout << "Nao foi possivel abrir o diretorio" <<x<< endl;
         exit(1);
-
     }
-
     while ((entrada = readdir (diretorio)) != NULL) {
-        string auxiliar;
-        string entradas = entrada -> d_name;
-        for (int x = 0;x < entradas.size(); x++){
-            auxiliar.push_back(entrada -> d_name[x]);
+        string nome = entrada->d_name;
+        string extensao;
+        for(string::reverse_iterator i= nome.rbegin();i!=nome.rend();++i ){
+            if(*i=='.')break;
+            extensao += *i;
         }
-        nome_arquivos.push_back(auxiliar);
-        i++;
+        if(extensao == "txt") inserirDocumento(x+'/'+entrada->d_name);
     }
     closedir(diretorio);
-    return nome_arquivos;
-    }
-
-Biblioteca::Biblioteca(const string &x){
-    inserirDocumento(x);
-
-}
-
-Biblioteca::Biblioteca(const string &x){
-    inserirDocumento("teste1.txt");
-    inserirDocumento("teste2.txt");
-    inserirDocumento("teste3.txt");
-    inserirDocumento("teste4.txt");
 }
 
 void Biblioteca::inserirDocumento(const string &x){
-    
     Documento doc(x);
-    ifstream arquivo;
-    arquivo.open(x);
-    string palavras_documento;
-    if (arquivo.is_open()){
-        while (!arquivo.eof()){
-            getline(arquivo,palavras_documento);
-        }
-        arquivo.close();
-    }else {
-        cout << "Deu ruim";
-    }
-    for (int i = 0; i < palavras_documento.size(); i++){
-        string auxiliar;
-        if (palavras_documento[i] != ' '){
-            auxiliar.push_back(palavras_documento[i]);
-        }else if(palavras_documento[i] == ' '){
-            Palavra x(auxiliar);
-            auxiliar = ' ';
-        }
-
-    }
     for(Palavra& p : doc.palavras()){
         indiceInvertido_.insert(std::pair<Palavra,vector<int>>(p,vector<int>(documentos_.size())));
         indiceInvertido_[p].push_back(doc.frequencia(p));
@@ -94,6 +55,7 @@ double Biblioteca::frequenciaInversa(const Palavra &x){
         for(int d=0; d < documentos_.size(); d++){
             if(i->second[d] > 0) n++;
         }
+        if(log(N/n)==0) return 0.00000000000000000000000000000001;
         return log(N/n);
     }
 }
@@ -129,8 +91,10 @@ vector<string> Biblioteca::busca(const string argumentos){
     buscar.configurarComoBusca(argumentos);
     list<Documento> ranking;
     for (Documento& d : documentos_){
-        d.similaridade(similaridade(d,buscar));
-        ranking.push_back(d);
+            double s = similaridade(d,buscar);
+            d.similaridade(s);
+            if (s>0)
+            ranking.push_back(d);
     }
     ranking.sort();
     for (std::list<Documento>::reverse_iterator i=ranking.rbegin();i!=ranking.rend();++i ){

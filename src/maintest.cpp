@@ -5,7 +5,7 @@
 int main(){
     vector<string> resultado;
     string argBusca;
-    Biblioteca a("./dirbusca");
+    Biblioteca a("dirBusca");
     cout<<"Entre com os argumentos da busca:"<<endl;
     getline(cin,argBusca);
     resultado = a.busca(argBusca);
