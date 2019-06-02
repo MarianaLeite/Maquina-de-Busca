@@ -41,8 +41,8 @@ vector <string> lista_arquivo(string nome_diretorio){
 int main(){
    ifstream arquivo;
     string palavra;
-    vector <string> nome_dos_arquivos = lista_arquivo("C:\\Users\\pindo\\Programation\\C++\\diretÃ³rio");
-    arquivo.open("C:\\Users\\pindo\\Programation\\C++\\diretÃ³rio" + nome_dos_arquivos[4]);
+    vector <string> nome_dos_arquivos = lista_arquivo("C:\\Users\\pindo\\Programation\\C++\\diretório");
+    arquivo.open("C:\\Users\\pindo\\Programation\\C++\\diretório" + nome_dos_arquivos[4]);
     if (arquivo.is_open()){
         cout<<"deu bao " <<endl;
         while(!arquivo.eof()){
