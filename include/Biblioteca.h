@@ -72,10 +72,17 @@ class Biblioteca{
      * @param x Diretório completo da biblioteca
      */
     Biblioteca(const string &x);
-
+    
+    /**
+     * @brief Resposta da busca
+     * 
+     * @param x String com todas as palavras da busca
+     * 
+     * @return Vetor ordenado com os arquivos que correspondem a busca
+     */
     vector<string>busca(const string);
 
-    friend class Documento_teste;
+    friend class Biblioteca_teste;
 };
 
 #endif

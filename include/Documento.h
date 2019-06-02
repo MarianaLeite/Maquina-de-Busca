@@ -100,6 +100,20 @@ class Documento{
      * @param busca Texto de busca
      */
     void configurarComoBusca(string busca);
+
+    /**
+     * @brief Metodo que salva a similaridade do documento com a busca, parametro utilizado
+     * para comparação de menor
+     * 
+     * @param valor de importancia
+     */
+    void similaridade(double x);
+    /**
+     * @brief Comparador para ordenação baseada em similaridade
+     * 
+     * @param Documento a ser comparado
+     */
+    bool operator <(Documento &d)const;
     
     /**
      * @brief Verifica se o nome do documento {@x} Ã© igual ao nome do documento corrente,
@@ -109,11 +123,6 @@ class Documento{
      * @return true Se o nome dos documentos sÃ£o iguais
      * @return false Se o nome dos documentos sÃ£o diferentes
      */
-
-    void similaridade(double x);
-
-    bool operator <(Documento &d)const;
-
     bool operator==(const Documento &x)const;
 
     friend class Documento_teste;
