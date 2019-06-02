@@ -2,7 +2,39 @@
 #include "../include/Documento.h"
 #include <cmath>
 #include<set>
+#include<string>
+#include<fstream>
+#include <dirent.h>
+#include <vector>
+
 #include <iostream>//remover
+
+vector <string> lista_arquivo(string nome_diretorio){
+    DIR *diretorio;
+    int i = 0;
+    vector <string> nome_arquivos;
+    struct dirent *entrada;
+    diretorio = opendir(nome_diretorio.c_str());
+
+    if (diretorio == NULL){
+        cout << "Nao foi possivel abrir o arquivo" << endl;
+        exit(1);
+
+    }
+
+    while ((entrada = readdir (diretorio)) != NULL) {
+        string auxiliar;
+        string entradas = entrada -> d_name;
+        for (int x = 0;x < entradas.size(); x++){
+            auxiliar.push_back(entrada -> d_name[x]);
+        }
+        nome_arquivos.push_back(auxiliar);
+        i++;
+    }
+    closedir(diretorio);
+    return nome_arquivos;
+    }
+
 Biblioteca::Biblioteca(const string &x){
     inserirDocumento(x);
 }
@@ -24,7 +56,7 @@ void Biblioteca::inserirDocumento(const string &x){
     for (int i = 0; i < palavras_documento.size(); i++){
         string auxiliar;
         if (palavras_documento[i] != ' '){
-            auxilar.push_back(palavras_documento[i]);
+            auxiliar.push_back(palavras_documento[i]);
         }else if(palavras_documento[i] == ' '){
             Palavra x(auxiliar);
             auxiliar = ' ';
