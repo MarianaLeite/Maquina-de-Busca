@@ -84,6 +84,14 @@ vector<Palavra> Documento::palavras() const {
     return palavras;
 }
 
+void Documento::similaridade(double x){
+    this->similaridade_= x;
+}
+
 string Documento::nome() const {
     return this->nome_;
+}
+
+bool Documento::operator <(Documento &d)const{
+    return this->similaridade_<d.similaridade_;
 }
