@@ -1,6 +1,8 @@
 {
     "files.encoding": "iso88591",
     "files.exclude": {
-        "**/*.exe": true
+        "**/*.exe": true,
+        "**/*.exe.stackdump": true,
+        "**/*.stackdump": true
     }
 }
