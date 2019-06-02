@@ -2,100 +2,73 @@
 #include "../include/doctest.h"
 #include "../include/Palavra.h"
 #include <string>
-#include <ctype.h>
-#include <locale>
-
 
 using namespace std;
 
-
 class Palavra_teste {
+    
     public:
+        
         static string palavra_(const Palavra &c) {
             return  c.palavra_;
         }
 
-        static string converter(const string &x){
-              string y;
-            for (char i : x){   
-            i = removerAcento(i);
-            i = tolower(i);
-            if (islower(i)){
-                if (iswdigit(i) || iswalnum(i)) y += i;
-                }
-            }
-            return y;
+        static string converter_(const string &x){
+            Palavra a("");
+            return a.converter(x);
         }
 
-        static char removerAcento (char x){
-             char *p = &x;
-            while ((*p) != 0) {    
-            const char* tr = "AAAAAAECEEEEIIIIDNOOOOOx0UUUUYPsaaaaaaeceeeeiiiiOnooooo/0uuuuypy";
-            unsigned char ch = (*p);
-            if (ch >= 192){
-                (*p) = tr[ch-192];
-            }
-            ++p;
-            }
-        return x;
+        static char removerAcento_(char x){
+            Palavra a("");
+            return a.removerAcento(x);
         }
 };
 
-
-
-TEST_SUITE("Testa a remo??o de caracteres especiais da palavra"){
-    Palavra a("ol?");
+TEST_SUITE("Testes sobre os métodos da classe Palavra"){
+    
+    Palavra a("olá");
     
     TEST_CASE("Remover acentos"){
-        char a = '?';
-        char b = '?';
-        
-        a = Palavra_teste::removerAcento(a);
-        CHECK(a == 'a');
-        b = Palavra_teste::removerAcento(b);
-        CHECK(b == 'A');
+        CHECK(Palavra_teste::removerAcento_('á') == 'a');
+        CHECK(Palavra_teste::removerAcento_('Á') == 'A');
     }
 
     TEST_CASE("Converter"){
-        string  a = "Ola";
-        string b = "?l??";
-        a = Palavra_teste::converter(a);
-        CHECK(a == "ola");
-        b = Palavra_teste::converter(b);
-        CHECK(b == "olae");
+        CHECK(Palavra_teste::converter_("Olá") == "ola");
+        CHECK(Palavra_teste::converter_("Oláé") == "olae");
     }
     
     TEST_CASE("paraString"){
         CHECK(a.paraString() == "ola");
-        Palavra b("p?");
+        Palavra b("pé");
         CHECK(b.paraString() == "pe");
-        Palavra c("ol?");
+        Palavra c("olé");
         CHECK(c.paraString() == "ole");
-        Palavra d("?");
+        Palavra d("é");
         CHECK(d.paraString() == "e");
-        Palavra e("ent?o");
+        Palavra e("então");
         CHECK(e.paraString() == "entao");
-        Palavra f("Fund?o");
+        Palavra f("Fundão");
         CHECK(f.paraString() == "fundao");
-        Palavra g("Xumbalai?");
+        Palavra g("Xumbalaié");
         CHECK(g.paraString() == "xumbalaie");
-        Palavra h("N?o!!!!");
+        Palavra h("Não!!!!");
         CHECK(h.paraString() == "nao");
-        Palavra i("????~y~u~i???");
+        Palavra i("eeee~y~u~iaao");
         CHECK (i.paraString() == "eeeeyuiaao");
-        Palavra j("???????????????");
+        Palavra j("áéíóúâêîôûàèìòù");
         CHECK (j.paraString() == "aeiouaeiouaeiou" );
-        Palavra k("N?o!!!!");
+        Palavra k("Não!!!!");
         CHECK(k.paraString() == "nao");
-        Palavra l("P?o!P?nN!!!");
+        Palavra l("Pão!PãnN!!!");
         CHECK(l.paraString() == "paopann");
-        Palavra m("??");
+        Palavra m("éê");
         CHECK(m.paraString() == "ee");
-        Palavra n("AL?,HA");
+        Palavra n("ALO,HA");
         CHECK (n.paraString() == "aloha");
     }
     
-    TEST_CASE("Operator == "){
+    TEST_CASE("Operator=="){
         Palavra a("REI");
         Palavra b ("rei");
         Palavra c("REI");
@@ -105,7 +78,7 @@ TEST_SUITE("Testa a remo??o de caracteres especiais da palavra"){
         CHECK((a == d) == false);
     }
 
-    TEST_CASE("Operator ="){
+    TEST_CASE("Operator="){
         Palavra a("Night");
         Palavra b("KIng");
         CHECK(a.paraString() == "night");
@@ -114,9 +87,9 @@ TEST_SUITE("Testa a remo??o de caracteres especiais da palavra"){
         CHECK (a.paraString() == "king");
     }
 
-    TEST_CASE("Operator <"){
-        Palavra a("?rvores");
-        Palavra b("Bal?o");
+    TEST_CASE("Operator<"){
+        Palavra a("Árvores");
+        Palavra b("Balão");
         string x = "arvores";
         string y = "balao";
         CHECK((x < y) == true);
@@ -128,6 +101,4 @@ TEST_SUITE("Testa a remo??o de caracteres especiais da palavra"){
         a = b;
         CHECK ((a < b) == false);
     }
-
 }
-

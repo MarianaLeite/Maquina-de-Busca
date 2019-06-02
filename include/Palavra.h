@@ -34,6 +34,8 @@ class Palavra{
      * @return char Caracter sem acento
      */
     char removerAcento(char x);
+
+    friend class Palavra_teste;
     
     public:
 
@@ -75,7 +77,6 @@ class Palavra{
      * @return false Se o objeto corrente é maior
      */
     bool operator<(const Palavra &x)const;
-    friend class Palavra_teste;
 };
 
 #endif
