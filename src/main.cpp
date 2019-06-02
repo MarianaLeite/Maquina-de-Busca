@@ -1,6 +1,7 @@
 #include <dirent.h>
 #include <iostream>
 #include <string>
+#include "../include/Documento.h"
 #include "../include/Palavra.h"
 #include <fstream>
 #include <vector>
@@ -51,18 +52,20 @@ vector<string> lista_arquivo(string nome_diretorio){
     }
     closedir(diretorio);
     return nome_arquivos;*/
+    Documento y;
+    /*Palavra a("me");
+    Palavra b("come");
+    Documento x("C:\\Users\\pindo\\Programation\\C++\\Maquina-de-Busca\\src\\lerolero.txt");
+    std::cout << x.frequencia(a) << std::endl;
+    std::cout << x.frequencia(b) << std::endl;
+    vector<Palavra> p = x.palavras();
+    for(int i = 0; i < p.size(); i++){
+        std::cout << p[i].paraString() << std::endl;
+    }*/
+    y.configurarComoBusca("eu sou muito legal");
+    vector<Palavra> p = y.palavras();
+    for(int i = 0; i < p.size(); i++){
+        std::cout << p[i].paraString() << std::endl;
+    }
 
-    Palavra a ("Árvores");
-    std::cout << a.paraString() <<std::endl;
-    Palavra b ("Olá");
-    std::cout << b.paraString()<<std::endl;
-    a = b; 
-    std::cout << a.paraString() <<std::endl;
-
-    Biblioteca x("Exemplo.txt");
-
-
-
-}
-    
     

@@ -35,15 +35,6 @@ class Documento{
      * 
      */
     map<Palavra,double> coordenadas_;
-    
-    public:
-
-    /**
-     * @brief Construtor do objeto Documento
-     * 
-     * @param x Nome do documento e sua extensão
-     */
-    Documento(const string &x);
 
     /**
      * @brief Método que armazena {@x} no conjunto de palavras do documento
@@ -51,6 +42,29 @@ class Documento{
      * @param x Objeto Palavra
      */
     void inserirPalavra(const Palavra &x);
+
+    /**
+     * @brief Método que abre documento .txt de nome {@x} e converte em objeto 
+     * Documento
+     * 
+     * @param x Diretório e nome do documento e.g.: C:/Jao/Documentos/Jao.txt
+     */
+    void lerDocumento(string x);
+
+    public:
+
+    /**
+     * @brief Construtor do objeto Documento
+     * 
+     */
+    Documento();
+
+    /**
+     * @brief Construtor do objeto Documento
+     * 
+     * @param x Nome do documento e sua extensão
+     */
+    Documento(const string &x);
 
     /**
      * @brief Método que retorna a frequência do termo {@x} no documento
@@ -66,7 +80,7 @@ class Documento{
      * 
      * @return vector<Palavra> todas as palavras do documento
      */    
-    set<Palavra> palavras() const;
+    vector<Palavra> palavras() const;
 
     /**
      * @brief Método que retorna o nome do documento
@@ -75,6 +89,15 @@ class Documento{
      * @return string nome do documento
      */
     string nome() const;
+
+    /**
+     * @brief Método que configura documento com o texto {@busca} de busca somente
+     * se o documento estiver vazio (ou não inicializado com o nome do arquivo 
+     * correspondente)
+     * 
+     * @param busca Texto de busca
+     */
+    void configurarComoBusca(string busca);
     
     /**
      * @brief Verifica se o nome do documento {@x} é igual ao nome do documento corrente,
