@@ -75,6 +75,7 @@ class Biblioteca{
 
     vector<string>busca(const string);
 
+    friend class Documento_teste;
 };
 
 #endif

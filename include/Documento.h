@@ -115,6 +115,8 @@ class Documento{
     bool operator <(Documento &d)const;
 
     bool operator==(const Documento &x)const;
+
+    friend class Documento_teste;
 };
 
 #endif
