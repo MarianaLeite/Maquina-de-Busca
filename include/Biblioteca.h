@@ -80,7 +80,7 @@ class Biblioteca{
     Biblioteca();
     
     /**
-     * @brief Resposta da busca
+     * @brief Método que retorna o ranking de documentos relacionados à busca
      * 
      * @param x String com todas as palavras da busca
      * 

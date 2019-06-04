@@ -96,7 +96,6 @@ vector<string> Biblioteca::busca(const string argumentos){
     for (Documento& d : documentos_){
             double s = similaridade(d,buscar);
             d.similaridade(s);
-            if (s>0)
             ranking.push_back(d);
     }
     ranking.sort();
