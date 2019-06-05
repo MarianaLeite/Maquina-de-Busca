@@ -11,16 +11,16 @@
 using namespace std;
 
 int main(){
-    Biblioteca x ("../test/diretorio");
-    vector<string> a = x.busca("A");
-    for (int i = 0; i < a.size(); i++){
-        Documento y = a[i];
-        Palavra z("A");
+    Biblioteca biblioteca ("../test/diretorio");
+    vector<string> documentos = biblioteca.busca("A");
+    for (int i = 0; i < documentos.size(); i++){
+        Documento documento = documentos[i];
+        Palavra palavra("A");
         cout << endl <<"Ranking dos Documentos:" << endl;
-        cout << i + 1 << ") " <<a[i] << endl;
-        cout <<"A frequencia da palavra A no documento: " << y.frequencia(z) << endl;
+        cout << i + 1 << ") " <<documentos[i] << endl;
+        cout <<"A frequencia da palavra A no documento: " << documento.frequencia(palavra) << endl;
         cout << "As palavras presentes no documento: " << endl;
-        for(Palavra p : y.palavras()){
+        for(Palavra p : documento.palavras()){
             cout<<p.paraString() <<endl; 
         }
     }
