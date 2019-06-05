@@ -33,12 +33,12 @@ TEST_SUITE("Testes sobre os métodos da classe Palavra"){
         CHECK(Palavra_teste::removerAcento_('Á') == 'A');
     }
 
-    TEST_CASE("Converter"){
+    TEST_CASE("Verifica se o metódo converter trata a string removendo os acentos e transformando as mesmas em minúsculas"){
         CHECK(Palavra_teste::converter_("Olá") == "ola");
         CHECK(Palavra_teste::converter_("Oláé") == "olae");
     }
     
-    TEST_CASE("paraString"){
+    TEST_CASE("Verificar se o método paraString retorna a string que representa a Palavra"){
         CHECK(a.paraString() == "ola");
         Palavra b("pé");
         CHECK(b.paraString() == "pe");
@@ -68,7 +68,7 @@ TEST_SUITE("Testes sobre os métodos da classe Palavra"){
         CHECK (n.paraString() == "aloha");
     }
     
-    TEST_CASE("Operator=="){
+    TEST_CASE("Verifica se as Palavras (escritas com acento ou maísculas e minúsculas) são iguais"){
         Palavra a("REI");
         Palavra b ("rei");
         Palavra c("REI");
@@ -78,7 +78,7 @@ TEST_SUITE("Testes sobre os métodos da classe Palavra"){
         CHECK((a == d) == false);
     }
 
-    TEST_CASE("Operator="){
+    TEST_CASE("Verifica a atrituição de uma palavra à outra"){
         Palavra a("Night");
         Palavra b("KIng");
         CHECK(a.paraString() == "night");
@@ -87,7 +87,7 @@ TEST_SUITE("Testes sobre os métodos da classe Palavra"){
         CHECK (a.paraString() == "king");
     }
 
-    TEST_CASE("Operator<"){
+    TEST_CASE("Verifica se uma Palavra é menor do que a outra (pelo contexto léxico"){
         Palavra a("Árvores");
         Palavra b("Balão");
         string x = "arvores";

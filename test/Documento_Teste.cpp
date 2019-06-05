@@ -37,12 +37,12 @@ class Documento_teste {
 
 TEST_SUITE("Classe Documento"){
     
-    TEST_CASE("Construtor vazio da classe Documento"){
+    TEST_CASE("Testa o construtor vazio da classe Documento"){
         Documento x;
         CHECK(Documento_teste::nome(x).empty());
     }
 
-    TEST_CASE("Contrutor com  o nome do documento como parâmetro"){
+    TEST_CASE("Testa o contrutor com  o nome do documento como parâmetro"){
         Documento x("doctext.txt");
         Palavra y("teste");
         CHECK(Documento_teste::nome(x) == "doctext.txt");
@@ -50,13 +50,13 @@ TEST_SUITE("Classe Documento"){
         CHECK(x.Documento::frequencia(y) == 1);
     }
 
-    TEST_CASE("método que retorna a frequencia da palavra no documento"){
+    TEST_CASE("Testa o método que retorna a frequencia da palavra no documento"){
         Documento x("doctext.txt");
         Palavra y("Olá");
         CHECK(x.Documento::frequencia(y) == 1);
     }
 
-    TEST_CASE("método que retorna o vetor de palavras Palavras"){
+    TEST_CASE("Testa o método que retorna o vetor de palavras Palavras"){
         Documento x("doctext.txt");
         vector <Palavra> auxiliar = x.Documento::palavras();
         CHECK (auxiliar.size() == x.Documento::palavras().size());
@@ -66,12 +66,12 @@ TEST_SUITE("Classe Documento"){
         CHECK(auxiliar[1].paraString() == x.Documento::palavras()[1].paraString());
     }
 
-    TEST_CASE("metódo que retorna o nome do documento"){
+    TEST_CASE("Testa o metódo que retorna o nome do documento"){
         Documento x("doctext.txt");
         CHECK(Documento_teste::nome(x) == "doctext.txt");
     }
 
-    TEST_CASE("configurar um documento com um texto"){
+    TEST_CASE("Testa a configuração da busca como um Documento"){
         Documento x;
         CHECK(x.Documento::palavras().size() == 0);
         x.configurarComoBusca("Dark side");
@@ -80,7 +80,7 @@ TEST_SUITE("Classe Documento"){
         CHECK(x.Documento::palavras()[1].paraString() == "side");
     }
 
-    TEST_CASE("inserir palavra"){
+    TEST_CASE("Testa o método de inserir palavra no documento"){
         Documento x("doctext.txt");
         Palavra y("vinho");
         Documento_teste::inserirPalavras(y,x);
@@ -88,7 +88,7 @@ TEST_SUITE("Classe Documento"){
         CHECK(x.Documento::palavras().size() == 3);
     }
 
-    TEST_CASE("frequencia"){
+    TEST_CASE("Testa a frequencia da palavra no documento"){
         Documento x("doctext.txt");
         Palavra y("Olá");
         Palavra z("Não");
@@ -98,7 +98,7 @@ TEST_SUITE("Classe Documento"){
         CHECK(x.Documento::frequencia(z) == 0);
     }
 
-    TEST_CASE("método Palavras que retorna um vetor de palavras do documento"){
+    TEST_CASE("Testa o método Palavras que retorna um vetor de palavras do documento"){
         Palavra x("Amanhã");
         Documento y("doctext.txt");
         CHECK(y.Documento::palavras().size() == 2);
@@ -109,18 +109,18 @@ TEST_SUITE("Classe Documento"){
         CHECK(y.Documento::palavras()[2].paraString() == "ola");
     }
 
-    TEST_CASE("Similaridade"){
+    TEST_CASE("Testa o set de similidade do documento com a busca"){
         Documento x("doctext.txt");
         x.Documento::similaridade(1);
         CHECK(Documento_teste::similaridade(x) == 1);
     }
 
-    TEST_CASE("nome do documento"){
+    TEST_CASE("Verifica o nome do documento"){
         Documento x("doctext.txt");
         CHECK(Documento_teste::nome(x) == "doctext.txt");
     }
 
-    TEST_CASE("operator <"){
+    TEST_CASE("Testa se um Documento é menor que o outro através da Similaridade com a busca"){
         Documento x("doctext.txt");
         x.Documento::similaridade(1);
         Documento y("../teste1.txt");

@@ -36,7 +36,7 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
         CHECK(Biblioteca_teste::documentos(b).size()==0);
     }
 
-    TEST_CASE("inserirDocumento"){
+    TEST_CASE("Teste que verifica a insersão do Documento através do método inserirDocumento"){
         Biblioteca bib;
         Biblioteca_teste::inserirDocumento(bib,"./diretorio/teste1.txt");//A A A B
         Palavra a ("A");
@@ -59,7 +59,7 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
         CHECK(Biblioteca_teste::indiceI(bib)[c][1]==1);
         CHECK(Biblioteca_teste::documentos(bib).size()==2);
     }
-    TEST_CASE("Construtor a partir do diretorio"){
+    TEST_CASE("Construtor da Biblioteca a partir do diretorio passado como parâmetro"){
         Biblioteca bib("./diretorio");
         CHECK(Biblioteca_teste::indiceI(bib).size()==3);
         CHECK(Biblioteca_teste::documentos(bib).size()==4);
@@ -72,7 +72,7 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
         
 
     }
-    TEST_CASE("inverseFrequence"){
+    TEST_CASE("Testar o inverso da frequência nos documentos através do métodoinverseFrequence"){
         Biblioteca bib("./diretorio");
         Palavra a("A");
         Palavra b("B");
@@ -83,7 +83,7 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
         CHECK(Biblioteca_teste::frequenciaInversa(c,bib)== log(N/n));
     }
 
-    TEST_CASE("coordenada"){
+    TEST_CASE("Testar as coordenadas de uma palavra no documento através do método coordenada"){
         Biblioteca bib("./diretorio");
         Documento d("./diretorio/teste1.txt");
         Palavra a("A");
@@ -94,14 +94,14 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
         CHECK(Biblioteca_teste::coordenada(d,b,bib) > 0);
         CHECK(Biblioteca_teste::coordenada(d,c,bib) == 0);        
     }
-    TEST_CASE("similaridade"){
+    TEST_CASE("Testar a similaridade do documento com a busca "){
         Biblioteca bib("./diretorio");
         Documento d("./diretorio/teste1.txt");
         Documento e("./diretorio/teste2.txt");
         CHECK(Biblioteca_teste::similaridade(d,e,bib) == 0);        
     }
 
-    TEST_CASE("busca"){
+    TEST_CASE("Testar se o vetor ranking retorna a similaridade de cada documento com a busca"){
         Biblioteca bib("./diretorio");
         vector<string> ranking{"./diretorio/teste1.txt","./diretorio/teste3.txt","./diretorio/teste4.txt"};
         CHECK(bib.busca("a")==ranking);        
