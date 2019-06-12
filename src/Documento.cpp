@@ -1,5 +1,4 @@
-#include "../include/Documento.h"
-#include <dirent.h>
+#include "../include/documento.h"
 #include <fstream>
 #include <string>
 #include <vector>
@@ -92,6 +91,6 @@ string Documento::nome() const {
     return this->nome_;
 }
 
-bool Documento::operator <(Documento &d)const{
+bool Documento::operator<(Documento &d) const {
     return this->similaridade_<d.similaridade_;
 }

@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 #include <string>
-#include "../include/Palavra.h"
+#include "../include/palavra.h"
 
 using namespace std;
 
@@ -30,13 +30,6 @@ class Documento{
      * 
      */
     map<Palavra,int> frequencia_;
-    
-    /**
-     * @brief Coordenadas do documento na biblioteca, onde cada posição i do vetor
-     * é sua coordenada na palavra i 
-     * 
-     */
-    map<Palavra,double> coordenadas_;
 
     /**
      * @brief Método que armazena {@x} no conjunto de palavras do documento
@@ -79,7 +72,6 @@ class Documento{
     /**
      * @brief Método que retorna um vector com todas as palavras do arquivo sem repetição
      * 
-     * 
      * @return vector<Palavra> todas as palavras do documento
      */    
     vector<Palavra> palavras() const;
@@ -108,12 +100,13 @@ class Documento{
      * @param valor de importancia
      */
     void similaridade(double x);
+    
     /**
      * @brief Comparador para ordenação baseada em similaridade
      * 
      * @param Documento a ser comparado
      */
-    bool operator <(Documento &d)const;
+    bool operator<(Documento &d)const;
     
     /**
      * @brief Verifica se o nome do documento {@x} é igual ao nome do documento corrente,

@@ -1,8 +1,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
 #include "../include/doctest.h"
-#include "../include/Documento.h"
-#include "../include/Palavra.h"
+#include "../include/documento.h"
+#include "../include/palavra.h"
 #include <string>
 #include <ctype.h>
 #include <locale>
@@ -22,10 +22,6 @@ class Documento_teste {
 
         static map <Palavra, int> frequencia_(Documento &x){
             return x.frequencia_;
-        }
-
-        static map <Palavra, double> coordenadas_(Documento &x){
-            return x.coordenadas_;
         }
 
         static void inserirPalavras (const Palavra &x, Documento &y){

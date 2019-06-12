@@ -1,11 +1,9 @@
-#include "../include/Biblioteca.h"
-#include "../include/Documento.h"
-#include "../include/Palavra.h"
+#include "../include/biblioteca.h"
+#include "../include/documento.h"
+#include "../include/palavra.h"
 #include <cmath>
-#include<list>
-#include<set>
-#include<string>
-#include<fstream>
+#include <list>
+#include <string>
 #include <dirent.h>
 #include <vector>
 
@@ -68,7 +66,7 @@ double Biblioteca::coordenada(Documento &x, const Palavra &y){
     return x.frequencia(y)*frequenciaInversa(y);
 }
 
-double Biblioteca::similaridade( Documento &x, Documento& busca){
+double Biblioteca::similaridade(Documento &x, Documento& busca){
     vector<double> vetorialX,vetorialBusca;
     for(map<Palavra,vector<int>>::iterator i = indiceInvertido_.begin(); i!=indiceInvertido_.end();++i){
         vetorialX.push_back(coordenada(x,i->first));

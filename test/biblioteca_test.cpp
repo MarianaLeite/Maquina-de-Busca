@@ -5,31 +5,37 @@
 #include "../include/Biblioteca.h"
 #include<vector>
 #include <cmath>
+
 class Biblioteca_teste{
     public:
+    
     static vector<Documento> documentos(Biblioteca& b){
         return b.documentos_;
     }
+    
     static map<Palavra,vector<int>>  indiceI(Biblioteca& b){
         return b.indiceInvertido_;
     }
+    
     static void inserirDocumento(Biblioteca& b, const string& s){
         b.inserirDocumento(s);
     }
+    
     static double frequenciaInversa(const Palavra& p,Biblioteca& b){
         return b.frequenciaInversa(p);
     }
+    
     static double coordenada(Documento &x, const Palavra &y,Biblioteca& b){
         return b.coordenada(x,y);
     }
+    
     static double similaridade(Documento &x, Documento &busca,Biblioteca& b){
 
     }
 };
 
-
-
 TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
+    
     TEST_CASE("Construtor vazio da classe Biblioteca"){
         Biblioteca b;
         CHECK(Biblioteca_teste::indiceI(b).size()==0);
@@ -59,6 +65,7 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
         CHECK(Biblioteca_teste::indiceI(bib)[c][1]==1);
         CHECK(Biblioteca_teste::documentos(bib).size()==2);
     }
+    
     TEST_CASE("Construtor da Biblioteca a partir do diretorio passado como parâmetro"){
         Biblioteca bib("./diretorio");
         CHECK(Biblioteca_teste::indiceI(bib).size()==3);
@@ -69,9 +76,8 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
         REQUIRE(Biblioteca_teste::indiceI(bib)[a].size()==4);
         REQUIRE(Biblioteca_teste::indiceI(bib)[b].size()==4);
         REQUIRE(Biblioteca_teste::indiceI(bib)[c].size()==4);
-        
-
     }
+
     TEST_CASE("Testar o inverso da frequência nos documentos através do métodoinverseFrequence"){
         Biblioteca bib("./diretorio");
         Palavra a("A");
@@ -94,6 +100,7 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
         CHECK(Biblioteca_teste::coordenada(d,b,bib) > 0);
         CHECK(Biblioteca_teste::coordenada(d,c,bib) == 0);        
     }
+    
     TEST_CASE("Testar a similaridade do documento com a busca "){
         Biblioteca bib("./diretorio");
         Documento d("./diretorio/teste1.txt");
@@ -103,9 +110,7 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
 
     TEST_CASE("Testar se o vetor ranking retorna a similaridade de cada documento com a busca"){
         Biblioteca bib("./diretorio");
-        vector<string> ranking{"./diretorio/teste1.txt","./diretorio/teste3.txt","./diretorio/teste4.txt"};
+        vector<string> ranking{"./diretorio/teste1.txt","./diretorio/teste2.txt","./diretorio/teste3.txt","./diretorio/teste4.txt"};
         CHECK(bib.busca("a")==ranking);        
     }
-
-
 }

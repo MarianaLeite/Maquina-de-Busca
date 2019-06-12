@@ -1,7 +1,7 @@
 #ifndef BIBLIOTECA_H
 #define BIBLIOTECA_H
-#include "../include/Documento.h"
-#include "../include/Palavra.h"
+#include "../include/documento.h"
+#include "../include/palavra.h"
 
 using namespace std;
 
@@ -51,7 +51,7 @@ class Biblioteca{
      * @param y Objeto Palavra
      * @return double Coordenada
      */
-    double coordenada( Documento &x, const Palavra &y);
+    double coordenada(Documento &x, const Palavra &y);
 
     /**
      * @brief Método que retorna, numa escala de 0 até 1, a similaridade entre
@@ -74,7 +74,7 @@ class Biblioteca{
     Biblioteca(const string &x);
     
     /**
-     * @brief Construtor do objeto Biblioteca, constoi uma biblioteca vazia
+     * @brief Construtor do objeto Biblioteca, constroi uma biblioteca vazia
      * 
      */
     Biblioteca();

@@ -1,4 +1,4 @@
-#include "../include/Palavra.h"
+#include "../include/palavra.h"
 #include <ctype.h>
 #include <iostream>
 #include <string>
