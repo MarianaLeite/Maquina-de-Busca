@@ -30,7 +30,7 @@ class Biblioteca_teste{
     }
     
     static double similaridade(Documento &x, Documento &busca,Biblioteca& b){
-
+        return b.similaridade(x, busca);                                                                                                                                                        
     }
 };
 

@@ -24,7 +24,7 @@ int main(){
     }
     cout << endl <<"____________________________________________________________________________" << endl;
     cout << endl << "Para casos mais complexos iremos utilizar um paragrafo de um texto como exemplo:" << endl;
-    Biblioteca bibliotecaComplexa ("../test/diretorio/textos complexos");
+    Biblioteca bibliotecaComplexa ("../documentos exemplo");
     vector<string> documentosComplexos = bibliotecaComplexa.busca("o");
     cout << endl <<"Ranking dos Documentos:" << endl;
     for (int i = 0; i < documentosComplexos.size(); i++){
@@ -34,7 +34,7 @@ int main(){
         cout <<"( " << documentoComplexo.frequencia(palavraComplexa) << ")" << endl;
     }
     cout << endl <<"____________________________________________________________________________" << endl;
-    Documento doc ("../test/diretorio/textos complexos/exemplo0.txt");
+    Documento doc ("../documentos exemplo/exemplo0.txt");
     for (int i = 0; i < doc.palavras().size(); i++){
         vector <Palavra> x = doc.palavras();
         cout  << x[i].paraString() << endl;
