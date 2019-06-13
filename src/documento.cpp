@@ -29,7 +29,7 @@ void Documento::configurarComoBusca(string busca){
                 }           
                 break;
             } else if(busca[i] == ' '){
-            if(!aux.empty ()){
+            if(!aux.empty()){
                 Palavra palavra(aux);
                 this->inserirPalavra(palavra);
                 aux.clear();
