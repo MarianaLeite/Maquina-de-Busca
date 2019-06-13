@@ -1,4 +1,5 @@
 #include "../include/documento.h"
+#include "../include/palavra.h"
 #include <fstream>
 #include <string>
 #include <vector>
