@@ -1,4 +1,4 @@
-CXX		  := g++
+CXX:= g++
 CXX_FLAGS := -Wall -Wextra -std=c++14 -ggdb
 
 all: main biblioteca documento palavra ../test/biblioteca_test ../test/documento_test ../test/palavra_test
