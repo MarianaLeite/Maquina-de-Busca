@@ -30,7 +30,7 @@ class Biblioteca_teste{
     }
     
     static double similaridade(Documento &x, Documento &busca,Biblioteca& b){
-        return b.similaridade(x, busca);                                                                                                                                                        
+        return b.similaridade(x,busca);
     }
 };
 
@@ -105,7 +105,7 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
         Biblioteca bib("./diretorio");
         Documento d("./diretorio/teste1.txt");
         Documento e("./diretorio/teste2.txt");
-        CHECK(Biblioteca_teste::similaridade(d,e,bib) == 0);        
+        CHECK((int)Biblioteca_teste::similaridade(d,e,bib) == 0);        
     }
 
     TEST_CASE("Testar se o vetor ranking retorna a similaridade de cada documento com a busca"){
