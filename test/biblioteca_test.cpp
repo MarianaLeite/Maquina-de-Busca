@@ -110,7 +110,7 @@ TEST_SUITE("Testes sobre os métodos da classe Biblioteca"){
 
     TEST_CASE("Testar se o vetor ranking retorna a similaridade de cada documento com a busca"){
         Biblioteca bib("./diretorio");
-        vector<string> ranking{"./diretorio/teste1.txt","./diretorio/teste2.txt","./diretorio/teste3.txt","./diretorio/teste4.txt"};
+        vector<string> ranking{"./diretorio/teste1.txt","./diretorio/teste3.txt","./diretorio/teste4.txt","./diretorio/teste2.txt"};
         CHECK(bib.busca("a")==ranking);        
     }
 }
