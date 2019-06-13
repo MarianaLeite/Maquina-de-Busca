@@ -56,7 +56,7 @@ double Biblioteca::frequenciaInversa(const Palavra &x){
         for(int d=0; d < documentos_.size(); d++){
             if(i->second[d] > 0) n++;
         }
-        if(log(N/n)==0) return 0.00000000000000000000000000000001;
+        if(log(N/n) == 0) return 0.00000000000000000000000000000001;
         return log(N/n);
     }
 }
@@ -75,14 +75,14 @@ double Biblioteca::similaridade(Documento &x, Documento& busca){
     
     double produtoEscalar = 0;
     double moduloX = 0, moduloBusca = 0;
-    for(int i = 0;i<vetorialX.size();++i){
+    for(int i = 0; i< vetorialX.size(); ++i){
         produtoEscalar += vetorialX[i]*vetorialBusca[i];
         moduloX += vetorialX[i] * vetorialX[i];
         moduloBusca += vetorialBusca[i] * vetorialBusca[i];
     }
     moduloX = sqrt(moduloX);
     moduloBusca = sqrt(moduloBusca);
-    if(moduloBusca==0||moduloX==0)return 0;
+    if(moduloBusca == 0||moduloX == 0)return 0;
     return produtoEscalar/(moduloBusca * moduloX);
 }
 

@@ -4,5 +4,8 @@
         "**/*.exe": true,
         "**/*.exe.stackdump": true,
         "**/*.stackdump": true
+    },
+    "files.associations": {
+        "iostream": "cpp"
     }
 }

@@ -13,24 +13,26 @@ using namespace std;
 int main(){
     Biblioteca biblioteca ("../test/diretorio");
     vector<string> documentos = biblioteca.busca("A");
+    cout << endl <<"____________________________________________________________________________" << endl;
     cout << endl <<"Ranking dos Documentos:" << endl;
-    cout << "A busca de A na Biblioteca" << endl;
+    cout << endl << "A busca de A na Biblioteca" << endl;
     for (int i = 0; i < documentos.size(); i++){
         Documento documento = documentos[i];
         Palavra palavra("A");
         cout << endl << i + 1 << ") " <<documentos[i];
         cout <<"( " << documento.frequencia(palavra) << ")" << endl;
     }
-    cout << endl;
-    cout << "Para casos mais complexos iremos utilizar um parágrafo de um texto como exemplo:" << endl;
+    cout << endl <<"____________________________________________________________________________" << endl;
+    cout << endl << "Para casos mais complexos iremos utilizar um paragrafo de um texto como exemplo:" << endl;
     Biblioteca bibliotecaComplexa ("../test/diretorio/textos complexos");
-    vector<string> documentosComplexos = bibliotecaComplexa.busca("independentemente");
+    vector<string> documentosComplexos = bibliotecaComplexa.busca("o");
     cout << endl <<"Ranking dos Documentos:" << endl;
     for (int i = 0; i < documentosComplexos.size(); i++){
         Documento documentoComplexo = documentosComplexos[i];
-        Palavra palavraComplexa("independentemente");
+        Palavra palavraComplexa("o");
         cout << endl << i + 1 << ") " <<documentosComplexos[i];
         cout <<"( " << documentoComplexo.frequencia(palavraComplexa) << ")" << endl;
     }
+    cout << endl <<"____________________________________________________________________________" << endl;
 }
     
