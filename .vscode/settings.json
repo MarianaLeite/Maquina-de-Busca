@@ -6,6 +6,15 @@
         "**/*.stackdump": true
     },
     "files.associations": {
-        "iostream": "cpp"
+        "Makefile": "makefile",
+        "iostream": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "*.tcc": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "system_error": "cpp"
     }
 }
