@@ -23,13 +23,17 @@ void Documento::configurarComoBusca(string busca){
         for(int i = 0; i <= busca.size(); i++){
             
             if(busca[i] == '\0'){
-                Palavra palavra(aux);
-                this->inserirPalavra(palavra);
+                if(!aux.empty ()){
+                    Palavra palavra(aux);
+                    this->inserirPalavra(palavra);
+                }           
                 break;
             } else if(busca[i] == ' '){
+            if(!aux.empty ()){
                 Palavra palavra(aux);
                 this->inserirPalavra(palavra);
                 aux.clear();
+            }                   
             } else {
                 aux += busca[i];
             }
@@ -50,13 +54,17 @@ void Documento::lerDocumento(string x){
             doc.get(caracter);
             
             if(doc.eof()){
-                Palavra palavra(aux);
-                this->inserirPalavra(palavra);
+                if(!aux.empty()){
+                    Palavra palavra(aux);
+                    this->inserirPalavra(palavra);
+                }
                 break;
             } else if(caracter == ' '){
-                Palavra palavra(aux);
-                this->inserirPalavra(palavra);
-                aux.clear();
+                if(!aux.empty()){
+                    Palavra palavra(aux);
+                    this->inserirPalavra(palavra);
+                    aux.clear();
+                }
             } else {
                 aux += caracter;
             }

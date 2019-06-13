@@ -34,5 +34,12 @@ int main(){
         cout <<"( " << documentoComplexo.frequencia(palavraComplexa) << ")" << endl;
     }
     cout << endl <<"____________________________________________________________________________" << endl;
+    Documento doc ("../test/diretorio/textos complexos/exemplo0.txt");
+    for (int i = 0; i < doc.palavras().size(); i++){
+        vector <Palavra> x = doc.palavras();
+        cout  << x[i].paraString() << endl;
+    }
+    cout << doc.palavras().size();
+
 }
     
