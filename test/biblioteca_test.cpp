@@ -1,8 +1,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../include/doctest.h"
-#include "../include/Documento.h"
-#include "../include/Palavra.h"
-#include "../include/Biblioteca.h"
+#include "../include/documento.h"
+#include "../include/palavra.h"
+#include "../include/biblioteca.h"
 #include<vector>
 #include <cmath>
 
