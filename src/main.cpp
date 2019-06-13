@@ -1,9 +1,9 @@
 #include "dirent.h"
 #include <iostream>
 #include <string>
-#include "../include/Documento.h"
-#include "../include/Palavra.h"
-#include "../include/Biblioteca.h"
+#include "../include/documento.h"
+#include "../include/palavra.h"
+#include "../include/biblioteca.h"
 #include <fstream>
 #include <vector>
 
