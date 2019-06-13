@@ -24,13 +24,13 @@ int main(){
     cout << endl;
     cout << "Para casos mais complexos iremos utilizar um parágrafo de um texto como exemplo:" << endl;
     Biblioteca bibliotecaComplexa ("../test/diretorio/textos complexos");
-    vector<string> documentosComplexos = bibliotecaComplexa.busca("A");
+    vector<string> documentosComplexos = bibliotecaComplexa.busca("independentemente");
     cout << endl <<"Ranking dos Documentos:" << endl;
     for (int i = 0; i < documentosComplexos.size(); i++){
         Documento documentoComplexo = documentosComplexos[i];
-        Palavra palavra("economia");
+        Palavra palavraComplexa("independentemente");
         cout << endl << i + 1 << ") " <<documentosComplexos[i];
-        cout <<"( " << documentoComplexo.frequencia(palavra) << ")" << endl;
+        cout <<"( " << documentoComplexo.frequencia(palavraComplexa) << ")" << endl;
     }
 }
     
