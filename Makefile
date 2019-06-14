@@ -14,23 +14,23 @@ clean:
 # 	clear
 # 	./bin/teste_multiconjunto
 
-bin/biblioteca.o: src/biblioteca.cpp
+src/bin/biblioteca.o: src/biblioteca.cpp
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
-bin/documento.o: src/documento.cpp
+src/bin/documento.o: src/documento.cpp
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
-bin/palavra.o: src/palavra.cpp
+src/bin/palavra.o: src/palavra.cpp
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
-test/bin/palavra_test: bin/palavra.o test/palavra_test.cpp
+test/bin/palavra_test: src/bin/palavra.o test/palavra_test.cpp
 	$(CXX) $(CXX_FLAGS) -I include/ $^ -o $@
 
-test/bin/documento_test: bin/documento.o bin/palavra.o test/documento_test.cpp
+test/bin/documento_test: src/bin/documento.o src/bin/palavra.o test/documento_test.cpp
 	$(CXX) $(CXX_FLAGS) -I include/ $^ -o $@
 
-test/bin/biblioteca_test: bin/biblioteca.o bin/palavra.o bin/documento.o test/biblioteca_test.cpp
+test/bin/biblioteca_test: src/bin/biblioteca.o src/bin/palavra.o src/bin/documento.o test/biblioteca_test.cpp
 	$(CXX) $(CXX_FLAGS) -I include/ $^ -o $@
 
-main: bin/palavra.o bin/documento.o bin/biblioteca.o src/main.cpp  
+main: src/bin/palavra.o src/bin/documento.o src/bin/biblioteca.o src/main.cpp  
 	$(CXX) $(CXX_FLAGS) -I include/ $^ -o $@

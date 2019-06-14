@@ -28,7 +28,7 @@ void Documento::configurarComoBusca(string busca){
                     this->inserirPalavra(palavra);
                 }           
                 break;
-            } else if(busca[i] == ' '){
+            } else if(busca[i] == ' ' || busca[i] == '\n'){
             if(!aux.empty()){
                 Palavra palavra(aux);
                 this->inserirPalavra(palavra);
@@ -59,7 +59,7 @@ void Documento::lerDocumento(string x){
                     this->inserirPalavra(palavra);
                 }
                 break;
-            } else if(caracter == ' '){
+            } else if(caracter == ' ' || caracter == '\n'){
                 if(!aux.empty()){
                     Palavra palavra(aux);
                     this->inserirPalavra(palavra);
@@ -83,6 +83,7 @@ int Documento::frequencia(const Palavra& x) {
 
 vector<Palavra> Documento::palavras() const {
     vector<Palavra> palavras;
+    palavras.clear();
     map<const Palavra,int>::const_iterator i;
     
     for(i = frequencia_.begin(); i != frequencia_.end(); ++i){

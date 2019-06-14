@@ -18,28 +18,19 @@ int main(){
     cout << endl << "A busca de A na Biblioteca" << endl;
     for (int i = 0; i < documentos.size(); i++){
         Documento documento = documentos[i];
-        Palavra palavra("A");
         cout << endl << i + 1 << ") " <<documentos[i];
-        cout <<"( " << documento.frequencia(palavra) << ")" << endl;
     }
     cout << endl <<"____________________________________________________________________________" << endl;
     cout << endl << "Para casos mais complexos iremos utilizar um paragrafo de um texto como exemplo:" << endl;
     Biblioteca bibliotecaComplexa ("documentosExemplo");
-    vector<string> documentosComplexos = bibliotecaComplexa.busca("o");
+    vector<string> documentosComplexos = bibliotecaComplexa.busca("pensando");
     cout << endl <<"Ranking dos Documentos:" << endl;
     for (int i = 0; i < documentosComplexos.size(); i++){
         Documento documentoComplexo = documentosComplexos[i];
-        Palavra palavraComplexa("o");
         cout << endl << i + 1 << ") " <<documentosComplexos[i];
-        cout <<"( " << documentoComplexo.frequencia(palavraComplexa) << ")" << endl;
     }
     cout << endl <<"____________________________________________________________________________" << endl;
-    Documento doc ("documentosExemplo/exemplo0.txt");
-    for (int i = 0; i < doc.palavras().size(); i++){
-        vector <Palavra> x = doc.palavras();
-        cout  << x[i].paraString() << endl;
-    }
-    cout << doc.palavras().size();
+    
 
 }
     

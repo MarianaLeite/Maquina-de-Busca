@@ -7,7 +7,7 @@
 #include <dirent.h>
 #include <vector>
 
-#include <iostream>//remover
+#include <iostream>
 Biblioteca::Biblioteca(){
 }
 
@@ -62,7 +62,6 @@ double Biblioteca::frequenciaInversa(const Palavra &x){
 }
 
 double Biblioteca::coordenada(Documento &x, const Palavra &y){
-    
     return x.frequencia(y)*frequenciaInversa(y);
 }
 
@@ -72,7 +71,6 @@ double Biblioteca::similaridade(Documento &x, Documento& busca){
         vetorialX.push_back(coordenada(x,i->first));
         vetorialBusca.push_back(coordenada(busca,i->first));
     }
-    
     double produtoEscalar = 0;
     double moduloX = 0, moduloBusca = 0;
     for(int i = 0; i< vetorialX.size(); ++i){
